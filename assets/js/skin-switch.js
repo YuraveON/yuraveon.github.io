@@ -15,6 +15,7 @@ function checkTheme() {
 }
 
 
+
 $(function () {
     $('#change-skin').on('click', function () {
         toggleClicked = true;
@@ -28,40 +29,44 @@ $(function () {
 
 function ipLookUp() {
     $(function () {
-        $.getJSON("http://www.geoplugin.net/json.gp?")
-            .then(
-                function success(response) {
+        if (sessionStorage.getItem('sunset') === null) {
+            $.getJSON("https://api.ipdata.co/?api-key=65cb466db782b2034c83ae4f0952e96a855430b3da96ae2c3a1571ef")
+                .then(
+                    function success(response) {
 
-                    lat = parseInt(response.geoplugin_latitude);
-                    lng = parseInt(response.geoplugin_longitude);
+                        lat = response.latitude;
+                        lng = response.longitude;
 
-                    let sunset = SunriseSunsetJS.getSunset(lat, lng);
-                    let sunrise = SunriseSunsetJS.getSunrise(lat, lng);
+                        let sunset = SunriseSunsetJS.getSunset(lat, lng);
+                        let sunrise = SunriseSunsetJS.getSunrise(lat, lng);
 
-                    //save to session storage
-                    sessionStorage.setItem('sunset', Date.parse(sunset));
-                    sessionStorage.setItem('sunrise', Date.parse(sunrise));
+                        //save to session storage
+                        sessionStorage.setItem('sunset', Date.parse(sunset));
+                        sessionStorage.setItem('sunrise', Date.parse(sunrise));
 
-                    if (!sessionLoaded){
-                        checkTime();
-                        timer();
+                        if (!sessionLoaded){
+                            checkTime();
+                            timer();
+                        }
+                    },
+
+                    function fail(data, status) {
+                        //set default jam sunset dan sunrise
+                        let date = new Date();
+                        sessionStorage.setItem('sunset', date.setHours(18, 0, 0));
+                        sessionStorage.setItem('sunrise', date.setHours(06, 0, 0));
+                        console.log('Request failed. Returned status of ', status);
+                        console.log('Default time for sunset and sunrise applied.');
+                        if (!sessionLoaded) {
+                            checkTime();
+                            timer();
+                        }
                     }
-                },
-
-                function fail(data, status) {
-                    //default jam sunset dan sunrise
-
-                    let date = new Date();
-                    sessionStorage.setItem('sunset', date.setHours(18, 0, 0));
-                    sessionStorage.setItem('sunrise', date.setHours(06, 0, 0));
-                    console.log('Request failed. Returned status of', status);
-                    console.log('Default Sunset and Sunrise saved and loaded.');
-                    if (!sessionLoaded) {
-                        checkTime();
-                        timer();
-                    }
-                }
-            );
+                );
+        } else {
+            checkTime();
+            timer();
+        }
     });
 }
 
