@@ -1,0 +1,61 @@
+---
+layout: base
+---
+
+
+{% include header.html type="page" %}
+
+<!-- Typed.js -->
+<script src="/assets/js/typed.js" type="text/javascript"></script>
+
+
+<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
+  <div class="row">
+    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+      {% if page.before-content %}
+        <div class="before-content">
+          {% for file in page.before-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+<div class="mobile-js-hide">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="text-center">
+        <h1>I am <span id="typed" style="color:#0085A1"></span></h1>
+        <script>
+          var typed = new Typed('#typed', {
+            strings: ["The Slash-Bringing Hasher.",
+              "The Sash-Ringing.",
+              "the Trash-Singing.",
+              "Mash-Flinging.",
+              "The Flash-Springing.",
+              "The Crash-Dinging.",
+              "The Hash-Slinging Slasher."
+            ],
+            typeSpeed: 100,
+            loop: false,
+            backSpeed: 50
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {{ content }}
+
+      {% if page.after-content %}
+        <div class="after-content">
+          {% for file in page.after-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% include comments.html %}
+    </div>
+  </div>
+</div>

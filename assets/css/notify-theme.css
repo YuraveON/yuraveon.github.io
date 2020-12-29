@@ -1,0 +1,16 @@
+.notifyjs-theme-base {
+    position: relative;
+    color: #404040;
+}
+
+.notifyjs-theme-light {
+    color: #404040;
+    background-color: #EAEAEA;
+    border-color: #404040;
+}
+
+.notifyjs-theme-dark {
+    color: #e4e6eb;
+    background-color: #242526;
+    border-color:#e4e6eb;
+}
