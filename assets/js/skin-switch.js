@@ -28,11 +28,15 @@ $(function () {
 
 function ipLookUp() {
     $(function () {
-        $.ajax('https://api.ipdata.co/?api-key=65cb466db782b2034c83ae4f0952e96a855430b3da96ae2c3a1571ef')
+        $.getJSON("http://www.geoplugin.net/json.gp?")
             .then(
                 function success(response) {
-                    let sunset = SunriseSunsetJS.getSunset(response.latitude, response.longitude);
-                    let sunrise = SunriseSunsetJS.getSunrise(response.latitude, response.longitude);
+
+                    lat = parseInt(response.geoplugin_latitude);
+                    lng = parseInt(response.geoplugin_longitude);
+
+                    let sunset = SunriseSunsetJS.getSunset(lat, lng);
+                    let sunrise = SunriseSunsetJS.getSunrise(lat, lng);
 
                     //save to session storage
                     sessionStorage.setItem('sunset', Date.parse(sunset));
