@@ -93,10 +93,10 @@ Hyperion dapat diunduh pada salah satu link berikut:
 
 Unduh dan unzip folder Hyperion ke direktori yang kamu inginkan, kemudian ikuti langkah berikut ini:
 
-1. Pada terminal, gunakan `cd direktori-hyperion` untuk pergi ke direktori tempat anda mengekstrak Hyperion.
-2. `ls` untuk melihat isi direktori. isinya seharusnya adalah `Fasm  Makefile  Src  license.txt  readme.txt`
-3. Terdapat file Makefile. Dengan tetap dalam direktori Hyperion, jalankan file makefile tersebut dengan perintah `sudo make`.
-4. Jika terdapat error berikut :
+- Pada terminal, gunakan `cd direktori-hyperion` untuk pergi ke direktori tempat anda mengekstrak Hyperion.
+- `ls` untuk melihat isi direktori. isinya seharusnya adalah `Fasm  Makefile  Src  license.txt  readme.txt`
+- Terdapat file Makefile. Dengan tetap dalam direktori Hyperion, jalankan file makefile tersebut dengan perintah `sudo make`.
+- Jika terdapat error berikut :
 ```
 gcc -std=c99 -Wall -pedantic -O2 -m32 -ISrc/Payloads/Aes/c   -c -o Src/Crypter/pe64.o Src/Crypter/pe64.c
 In file included from Src/Crypter/pe64.c:1:
@@ -106,8 +106,8 @@ Src/Crypter/hyperion.h:4:10: fatal error: windows.h: No such file or directory
 compilation terminated.
 make: *** [<builtin>: Src/Crypter/pe64.o] Error 1
 ```
-4a. Buka file Makefile dengan code editor kamu.
-5. File Makefile tersebut berisi:
+- Buka file Makefile dengan code editor kamu.
+- File Makefile tersebut berisi:
 {% highlight c linenos %}
 CC = gcc
 AES_INCLUDE_DIR = Src/Payloads/Aes/c
@@ -122,7 +122,7 @@ hyperion: $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXECUTABLE) $^
 {% endhighlight %}
 
-1. Perhatikan `CC = gcc` menerangkan bahwa CC (C-Compiler) yang digunakan adalah `gcc`, kita ubah `gcc` menjadi `i686-w64-mingw32-gcc` sehingga file Makefile menjadi:
+- Perhatikan `CC = gcc` menerangkan bahwa CC (C-Compiler) yang digunakan adalah `gcc`, kita ubah `gcc` menjadi `i686-w64-mingw32-gcc` sehingga file Makefile menjadi:
 
 {% highlight c linenos %}
 CC = i686-w64-mingw32-gcc
@@ -140,7 +140,7 @@ hyperion: $(OBJ)
 
 Simpan.
 
-7. Jalankan kembali `sudo make` dan sekarang harusnya sudah ada file hyperion.exe pada direktori Hyperion kamu.
+- Jalankan kembali `sudo make` dan sekarang harusnya sudah ada file hyperion.exe pada direktori Hyperion kamu.
 
 
 ## Penutup
