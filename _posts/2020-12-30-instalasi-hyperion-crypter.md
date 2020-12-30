@@ -93,7 +93,7 @@ Hyperion dapat diunduh pada salah satu link berikut:
 
 Unduh dan unzip folder Hyperion ke direktori yang kamu inginkan, kemudian ikuti langkah berikut ini:
 
-- Pada terminal, gunakan `cd direktori-hyperion` untuk pergi ke direktori tempat anda mengekstrak Hyperion.
+- Pada terminal, gunakan `cd direktori-hyperion` untuk pergi ke direktori tempat kamu mengekstrak Hyperion.
 - `ls` untuk melihat isi direktori. isinya seharusnya adalah `Fasm  Makefile  Src  license.txt  readme.txt`
 - Terdapat file Makefile. Dengan tetap dalam direktori Hyperion, jalankan file makefile tersebut dengan perintah `sudo make`.
 - Jika terdapat error berikut :
