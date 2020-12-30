@@ -79,7 +79,7 @@ ocaml-mingw-w64-x86-64 - OCaml cross-compiler based on mingw -- 64 bit compiler
 
 ### Make
 
-[Make](https://www.gnu.org/) adalahadalah untuk menentukan secara otomatis bagian mana dari program yang perlu dikompilasi ulang, dan mengeluarkan perintah yang diperlukan untuk mengkompilasi ulang. Cara instalasinya cukup simpel, yaitu hanya dengan `sudo apt install make` dan selesai.
+[Make](https://www.gnu.org/)  untuk menentukan secara otomatis bagian mana dari program yang perlu dikompilasi ulang, dan mengeluarkan perintah yang diperlukan untuk mengkompilasi ulang. Cara instalasinya cukup simpel, yaitu hanya dengan `sudo apt install make` dan selesai.
 
 ## Instalasi Hyperion Crypter
 
