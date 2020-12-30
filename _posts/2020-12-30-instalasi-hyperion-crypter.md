@@ -107,7 +107,7 @@ compilation terminated.
 make: *** [<builtin>: Src/Crypter/pe64.o] Error 1
 ```
 - Buka file Makefile dengan code editor kamu.
-- File Makefile tersebut berisi:
+- File Makefile tersebut berisi sebagai berikut:
 {% highlight c linenos %}
 CC = gcc
 AES_INCLUDE_DIR = Src/Payloads/Aes/c
@@ -122,7 +122,7 @@ hyperion: $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXECUTABLE) $^
 {% endhighlight %}
 
-- Perhatikan `CC = gcc` menerangkan bahwa CC (C-Compiler) yang digunakan adalah `gcc`, kita ubah `gcc` menjadi `i686-w64-mingw32-gcc` sehingga file Makefile menjadi:
+- Perhatikan `CC = gcc` menerangkan bahwa CC (C-Compiler) yang digunakan adalah `gcc`, kita ubah `gcc` menjadi `i686-w64-mingw32-gcc` sehingga file Makefile menjadi seperti di bawah dan simpan.
 
 {% highlight c linenos %}
 CC = i686-w64-mingw32-gcc
@@ -138,7 +138,7 @@ hyperion: $(OBJ)
 	$(CC) $(CFLAGS) -o $(EXECUTABLE) $^
 {% endhighlight %}
 
-Simpan.
+
 
 - Jalankan kembali `sudo make` dan sekarang harusnya sudah ada file hyperion.exe pada direktori Hyperion kamu.
 
