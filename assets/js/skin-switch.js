@@ -6,15 +6,27 @@ var notifDark = false;
 var notifLight = false;
 var i = 1;  
 
-function checkTheme() {
+function utterancesSetTheme(theme) {
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') {
+            return;
+        }
+        const message = {
+            type: 'set-theme',
+            theme: theme
+        };
+        const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
+        utterances.postMessage(message, 'https://utteranc.es');
+    });
+}
+
+function checkTheme(){
     if (firstLoad) {
         firstLoad = false;
         loadSession();
-        ipLookUp();
+        ipLookUp();  
     }
 }
-
-
 
 $(function () {
     $('#change-skin').on('click', function () {
@@ -163,12 +175,14 @@ function saveSession(){
 
 function darkMode() {
     $("body").addClass("page-dark-mode");
+    utterancesSetTheme('github-dark');
     BeautifulJekyllJS.initNavbar();
 }
 
 function lightMode() {
     $("body").removeClass("page-dark-mode");
-    BeautifulJekyllJS.initNavbar();
+    utterancesSetTheme('github-light');
+    BeautifulJekyllJS.initNavbar(); 
 }
 
 checkTheme();
