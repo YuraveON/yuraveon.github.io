@@ -107,9 +107,7 @@ function loadSession() {
 
 
 function checkTime() {
-    $(function () {
-        console.log('check time ke-', i); 
- 
+    $(function () { 
         let sessionSunset = parseInt(sessionStorage.getItem('sunset'));
         let sessionSunrise = parseInt(sessionStorage.getItem('sunrise'));
 

@@ -39,30 +39,44 @@ var BeautifulJekyllJS = {
     ) / 1000);
 
     if (brightness <= 125) {
-      $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
-      particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-dark-mode.json', function(){
-        console.log('🌙 mode');  
-      });
+      try{
+        $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-dark-mode.json', function () {
+          console.log('🌙 mode');
+        });
 
-      const message = {
-        type: 'set-theme',
-        theme: 'github-dark'
-      };
-      const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
-      utterances.postMessage(message, 'https://utteranc.es');
-
+        const message = {
+          type: 'set-theme',
+          theme: 'github-dark'
+        };
+        const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
+        utterances.postMessage(message, 'https://utteranc.es');
+      }
+      catch(err){
+        $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-dark-mode.json', function () {
+          console.log('🌙 mode');
+        });
+      }
     } else {
-      $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
-      particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-light-mode.json', function(){
-        console.log('☀️ mode');
-      });
-
-      const message = {
-        type: 'set-theme',
-        theme: 'github-light'
-      };
-      const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
-      utterances.postMessage(message, 'https://utteranc.es');
+      try{
+        $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-light-mode.json', function () {
+          console.log('☀️ mode');
+        });
+        const message = {
+          type: 'set-theme',
+          theme: 'github-light'
+        };
+        const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
+        utterances.postMessage(message, 'https://utteranc.es');
+      }
+      catch(err){
+        $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/YuraveON/yuraveon.github.io/master/assets/js/particles-config-light-mode.json', function () {
+          console.log('☀️ mode');
+        });
+      }   
     }
   },
 
