@@ -6,7 +6,6 @@ var notifDark = false;
 var notifLight = false;
 var i = 1;  
 
-checkTheme();
 
 function checkTheme(){
     console.log("checkTheme");
@@ -27,7 +26,6 @@ $(function () {
         sessionSaved = true;
     });
 });
-
 
 function ipLookUp() {
     console.log("ipLookUp");
@@ -206,4 +204,4 @@ function lightMode() {
     BeautifulJekyllJS.initNavbar(); 
 }
 
-
+checkTheme();
