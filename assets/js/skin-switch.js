@@ -6,21 +6,10 @@ var notifDark = false;
 var notifLight = false;
 var i = 1;  
 
-function utterancesSetTheme(theme) {
-    addEventListener('message', event => {
-        if (event.origin !== 'https://utteranc.es') {
-            return;
-        }
-        const message = {
-            type: 'set-theme',
-            theme: theme
-        };
-        const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
-        utterances.postMessage(message, 'https://utteranc.es');
-    });
-}
+checkTheme();
 
 function checkTheme(){
+    console.log("checkTheme");
     if (firstLoad) {
         firstLoad = false;
         loadSession();
@@ -30,6 +19,7 @@ function checkTheme(){
 
 $(function () {
     $('#change-skin').on('click', function () {
+        console.log("toggle di klik");
         toggleClicked = true;
         $("body").toggleClass("page-dark-mode");
         BeautifulJekyllJS.initNavbar();
@@ -40,11 +30,15 @@ $(function () {
 
 
 function ipLookUp() {
+    console.log("ipLookUp");
     $(function () {
+        console.log("ipLookUp - cek apakah ada session sunset");
         if (sessionStorage.getItem('sunset') === null) {
+            console.log("ipLookUp - tidak ada session sunset");
             $.getJSON("https://api.ipdata.co/?api-key=65cb466db782b2034c83ae4f0952e96a855430b3da96ae2c3a1571ef")
                 .then(
                     function success(response) {
+                        console.log("iplookup success");
 
                         lat = response.latitude;
                         lng = response.longitude;
@@ -57,12 +51,14 @@ function ipLookUp() {
                         sessionStorage.setItem('sunrise', Date.parse(sunrise));
 
                         if (!sessionLoaded){
+                            console.log("ipLookUp sucess session loaded = false");
                             checkTime();
                             timer();
                         }
                     },
 
                     function fail(data, status) {
+                        console.log("iplookup failed");
                         //set default jam sunset dan sunrise
                         let date = new Date();
                         sessionStorage.setItem('sunset', date.setHours(18, 0, 0));
@@ -70,12 +66,14 @@ function ipLookUp() {
                         console.log('Request failed. Returned status of ', status);
                         console.log('Default time for sunset and sunrise applied.');
                         if (!sessionLoaded) {
+                            console.log("ipLookUp failed session loaded = false");
                             checkTime();
                             timer();
                         }
                     }
                 );
         } else {
+            console.log("ipLookUp - tidak ada session sunset");
             checkTime();
             timer();
         }
@@ -84,8 +82,11 @@ function ipLookUp() {
 
 
 function timer(){
+    console.log("timer");
     setTimeout(function(){
+        console.log("timer - cek apakah toggle klik = false");
         if(!toggleClicked){
+            console.log("timer - toggle klik = false");
             checkTime();
             i++;
             if (i < (1 * 60)) {
@@ -96,6 +97,8 @@ function timer(){
 }
 
 function loadSession() {
+    console.log("load session");
+    toggleClicked = true;
     if (sessionStorage.getItem('mode') == 'light') {
         lightMode();
         sessionLoaded = true;
@@ -107,6 +110,7 @@ function loadSession() {
 
 
 function checkTime() {
+    console.log("check time");
     $(function () { 
         let sessionSunset = parseInt(sessionStorage.getItem('sunset'));
         let sessionSunrise = parseInt(sessionStorage.getItem('sunrise'));
@@ -144,7 +148,6 @@ function checkTime() {
                         }); 
                         notifLight = true; 
                     }     
-
                     sessionStorage.setItem('notification', 'base');
                 }
                           
@@ -154,6 +157,7 @@ function checkTime() {
 }
 
 function checkBrightness() {
+    console.log("check brightness");
     const rgb = $('.navbar').css("background-color").replace(/[^\d,]/g, '').split(",");
     const brightness = Math.round(( // http://www.w3.org/TR/AERT#color-contrast
         parseInt(rgb[0]) * 299 +
@@ -164,6 +168,7 @@ function checkBrightness() {
 }
 
 function saveSession(){
+    console.log("save session");
     if (checkBrightness() > 125){
         sessionStorage.setItem('mode', 'light');
     } else {
@@ -171,16 +176,34 @@ function saveSession(){
     }
 }
 
+function utterancesSetTheme(theme) {
+    console.log("utterancesSetTheme");
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') {
+            return;
+        }
+        const message = {
+            type: 'set-theme',
+            theme: theme
+        };
+        const utterances = document.querySelector('iframe').contentWindow; // try event.source instead
+        console.log("post message ke utterances");
+        utterances.postMessage(message, 'https://utteranc.es');
+    });
+}
+
 function darkMode() {
+    console.log("dark mode");
     $("body").addClass("page-dark-mode");
     utterancesSetTheme('github-dark');
     BeautifulJekyllJS.initNavbar();
 }
 
 function lightMode() {
+    console.log("light mode");
     $("body").removeClass("page-dark-mode");
     utterancesSetTheme('github-light');
     BeautifulJekyllJS.initNavbar(); 
 }
 
-checkTheme();
+
