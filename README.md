@@ -30,4 +30,8 @@
 
 If you guys want to fork, clone, or contribute, please do not be hesitated.
 
-All credits go to **Beautiful Jekyll**'s creators. Thanks for their creation.
+
+# Credit
+1. **Beautiful Jekyll**'s creators.
+2. All creators of JavaScript and CSS that i use.
+
