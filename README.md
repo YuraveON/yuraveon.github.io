@@ -13,7 +13,7 @@
 
 **If you enjoy Beautiful Jekyll, please consider [supporting me](https://github.com/sponsors/daattali) for over 5 years of development (and to unlock rewards!) ❤**
 
-# Modification
+# Modifications
 ## What i changes and overhaul from vanilla
 
 - Toggle Dark Mode (Although i use free plan of Beautiful Jekyll, i modified the theme to replicate dark mode with custom behaviour).
@@ -23,15 +23,14 @@
 - User's location based on IP (using API from [IPData.co](https://ipdata.co/)).
 - Using [Typed.js](https://mattboldt.com/demos/typed-js/) in About Me page.
 
-# TO-DO
+# TO-DOs
 ## What i think there is room for changes or to polish
 - Search features
-- Tag clouds
 
 If you guys want to fork, clone, or contribute, please do not be hesitated.
 
 
-# Credit
+# Credits
 1. **Beautiful Jekyll**'s creators.
 2. All creators of JavaScript and CSS that i use.
 
