@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: yuraveon.github.io
+Token: d6cdfca674f66322fbc1bfbd63974f7b1fd44de79b28f40834dfb483f0a5124a
