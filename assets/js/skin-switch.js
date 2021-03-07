@@ -50,8 +50,10 @@ function ipLookUp() {
                     function fail(data, status) {
                         //set default jam sunset dan sunrise
                         let date = new Date();
-                        sessionStorage.setItem('sunset', date.setHours(18, 0, 0));
-                        sessionStorage.setItem('sunrise', date.setHours(06, 0, 0));
+                        let dateSunset = new Date(date.setHours(18, 0, 0));
+                        let dateSunrise = new Date(date.setHours(06, 0, 0));
+                        sessionStorage.setItem('sunset', dateSunset);
+                        sessionStorage.setItem('sunrise', dateSunrise);
                         console.log('Request failed. Returned status of ', status);
                         console.log('Default time for sunset and sunrise applied.');
                         if (!sessionLoaded) {
