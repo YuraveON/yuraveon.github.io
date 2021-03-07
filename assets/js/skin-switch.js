@@ -38,8 +38,8 @@ function ipLookUp() {
                         let sunrise = SunriseSunsetJS.getSunrise(lat, lng);
 
                         //save to session storage
-                        sessionStorage.setItem('sunset', Date.parse(sunset));
-                        sessionStorage.setItem('sunrise', Date.parse(sunrise));
+                        sessionStorage.setItem('sunset', sunset);
+                        sessionStorage.setItem('sunrise', sunrise);
 
                         if (!sessionLoaded){
                             checkTime();
@@ -93,12 +93,12 @@ function loadSession() {
 
 function checkTime() {
     $(function () { 
-        let sessionSunset = parseInt(sessionStorage.getItem('sunset'));
-        let sessionSunrise = parseInt(sessionStorage.getItem('sunrise'));
+        let sessionSunset = sessionStorage.getItem('sunset');
+        let sessionSunrise = sessionStorage.getItem('sunrise');
 
-        let dateSunset = moment(sessionSunset).format('HH:mm');
-        let dateSunrise = moment(sessionSunrise).format('HH:mm');
-        let date = moment().format('HH:mm');
+        let dateSunset = new Date(sessionSunset);
+        let dateSunrise = new Date(sessionSunrise);
+        let date = new Date();
 
         if (date < dateSunrise || date >= dateSunset) {
             if (checkBrightness() > 125) { //check if in dark mode?
