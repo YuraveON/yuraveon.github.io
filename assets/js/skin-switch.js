@@ -102,7 +102,7 @@ function checkTime() {
         let dateSunrise = new Date(sessionSunrise);
         let date = new Date();
 
-        if (date < dateSunrise || date >= dateSunset) {
+        if (date < dateSunrise && date >= dateSunset) {
             if (checkBrightness() > 125) { //check if in dark mode?
                 darkMode();
                 if (!(sessionStorage.getItem('notification') == 'dark')){
