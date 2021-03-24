@@ -51,6 +51,7 @@ function ipLookUp() {
                         //set default jam sunset dan sunrise
                         let date = new Date();
                         let dateSunset = new Date(date.setHours(18, 0, 0));
+                        date.setDate(date.getDate() + 1);
                         let dateSunrise = new Date(date.setHours(06, 0, 0));
                         sessionStorage.setItem('sunset', dateSunset);
                         sessionStorage.setItem('sunrise', dateSunrise);
@@ -102,7 +103,7 @@ function checkTime() {
         let dateSunrise = new Date(sessionSunrise);
         let date = new Date();
 
-        if (date < dateSunrise && date >= dateSunset) {
+        if (date < dateSunrise || date >= dateSunset) {
             if (checkBrightness() > 125) { //check if in dark mode?
                 darkMode();
                 if (!(sessionStorage.getItem('notification') == 'dark')){
