@@ -10,7 +10,7 @@ Mencari data di Internet, baik nama orang ataupun artikel penunjang skripsi, mer
 
 > **google (somebody/something)** to type words into the search engine Google™ in order to find information about somebody/something
 
-Sebagian besar dari kita pernah mendengar atau berkata *googling*, yang memiliki makna mencari sesuatu dengan menggunakan google. Begitu besar dampaknya mesin pencari ini dalam kehidupan modern kita. Padahal, ada begitu banyak [mesin pencari](https://www.niagahoster.co.id/blog/daftar-mesin-pencari-selain-google/) selain Google, ada Bing, Yahoo Search, DuckDuckGo, dan lainnya. Jika kamu konten kreator, sudah pasti kamu belajar bagaimana mengoptimalkan mesin pencari agar konten kamu berada di halaman paling depan pada mesin pencari, kegiatan optimalisasi ini biasa disebut *Search Engine Optimization* (SEO). Sekarang ini banyak sekali konten atau data yang "berserakan" tersebar di Internet, dari yang baik sampai yang buruk, dari yang legal sampai illegal. Data-data tersebut melimpah ruas, siap diambil siapa saja. Masalahnya kemudian adalah, bagaimana kita mencari sesuatu yang kita inginkan diantara data-data yang berserakan tersebut? Di sinilah manfaatnya Google Dorking.
+Sebagian besar dari kita pernah mendengar atau berkata *googling*, yang memiliki makna mencari sesuatu dengan menggunakan google. Padahal, ada begitu banyak [mesin pencari](https://www.niagahoster.co.id/blog/daftar-mesin-pencari-selain-google/) selain Google. Jika kamu konten kreator, sudah pasti kamu belajar bagaimana mengoptimalkan website atau konten kamu agar berada di halaman paling depan pada mesin pencari, kegiatan ini biasa disebut *Search Engine Optimization* (SEO). Sekarang ini banyak sekali konten atau data yang "berserakan" tersebar di Internet, dari yang baik sampai yang buruk, dari yang legal sampai illegal. Data-data tersebut melimpah ruah, siap diambil siapa saja. Masalahnya kemudian adalah bagaimana kita mencari sesuatu yang kita inginkan diantara data-data yang berserakan tersebut? Di sinilah manfaatnya Google Dorking.
 
 ## Google Dorking
 
@@ -49,7 +49,7 @@ Google Dorking memiliki formula atau pola tertentu yang dimasukan ke dalam kolom
 Misal kita ingin mencari mouse komputer dengan hasil pencarian hanya dari tokopedia saja. Maka di kolom pencarian kita tulis
 `mouse komputer site:tokopedia.com`. *Well* ini hanya contoh saja. 
 
-Pola-pola di atas hanya sebagian kecil dari pola yang bisa diterapkan, silakan kamu cari sendiri, aplikasikan langsung Google Dorking untuk mencari Google Dorking. :)
+Pola-pola di atas hanya sebagian kecil dari pola yang bisa diterapkan, silakan kamu cari sendiri, aplikasikan langsung Google Dorking untuk mencari Google Dorking. :smile:
 
 ### Exploit-DB - Google Hacking Database
 
