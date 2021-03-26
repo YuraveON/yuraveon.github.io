@@ -98,9 +98,9 @@ function checkTime() {
         let sessionSunset = sessionStorage.getItem('sunset');
         let sessionSunrise = sessionStorage.getItem('sunrise');
 
-        let dateSunset = new Date(sessionSunset).toLocaleTimeString();
-        let dateSunrise = new Date(sessionSunrise).toLocaleTimeString();
-        let date = new Date().toLocaleTimeString();
+        let dateSunset = new Date(sessionSunset).toLocaleTimeString('en-US', { hour12: false });
+        let dateSunrise = new Date(sessionSunrise).toLocaleTimeString('en-US', { hour12: false });
+        let date = new Date().toLocaleTimeString('en-US', { hour12: false });
 
         if (dateSunrise > date && date <= dateSunset) {
             if (checkBrightness() > 125) { //check if in dark mode?
