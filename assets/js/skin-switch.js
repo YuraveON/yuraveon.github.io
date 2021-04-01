@@ -103,37 +103,36 @@ function checkTime() {
         let date = new Date().toLocaleTimeString('en-US', { hour12: false });
 
         if (dateSunrise > date && date <= dateSunset) {
-            if (checkBrightness() > 125) { //check if in dark mode?
-                darkMode();
-                if (!(sessionStorage.getItem('notification') == 'dark')){
-                    if (!notifDark) { 
-                        $(".dark-mode").notify("🌙 Good night!", { 
-                            style: 'theme', 
-                            className: 'dark', 
-                            elementPosition: "bottom right", 
-                            autoHideDelay: 3000 
-                        }); 
-                            notifDark = true; 
-                    }
-                    sessionStorage.setItem('notification', 'dark');
-                }        
-            }
-        } else {
             if (checkBrightness() <= 125) { //check if in light mode?
                 lightMode();
-                if (!(sessionStorage.getItem('notification') == 'base')){
-                    if (!notifLight) { 
-                        $(".light-mode").notify("☀️ Good day!", { 
-                            style: 'theme', 
-                            className: 'light', 
-                            elementPosition: "bottom right", 
-                            autoHideDelay: 3000 
-                        }); 
-                        notifLight = true; 
-                    }     
+                if (!(sessionStorage.getItem('notification') == 'base')) {
+                    if (!notifLight) {
+                        $(".light-mode").notify("☀️ Good day!", {
+                            style: 'theme',
+                            className: 'light',
+                            elementPosition: "bottom right",
+                            autoHideDelay: 3000
+                        });
+                        notifLight = true;
+                    }
                     sessionStorage.setItem('notification', 'base');
                 }
-                          
+            }
+        } else {
+            if (checkBrightness() > 125) { //check if in dark mode?
+                darkMode();
+                if (!(sessionStorage.getItem('notification') == 'dark')) {
+                    if (!notifDark) {
+                        $(".dark-mode").notify("🌙 Good night!", {
+                            style: 'theme',
+                            className: 'dark',
+                            elementPosition: "bottom right",
+                            autoHideDelay: 3000
+                        });
+                        notifDark = true;
+                    }
+                    sessionStorage.setItem('notification', 'dark');
+                }
             }
         }
     });
