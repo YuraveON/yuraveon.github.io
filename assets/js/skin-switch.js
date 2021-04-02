@@ -83,12 +83,11 @@ function timer(){
 }
 
 function loadSession() {
+    sessionLoaded = true;
     if (sessionStorage.getItem('mode') == 'light') {
         lightMode();
-        sessionLoaded = true;
     } else if (sessionStorage.getItem('mode') == 'dark') {
         darkMode();
-        sessionLoaded = true;
     }
 }
 
@@ -102,7 +101,7 @@ function checkTime() {
         let dateSunrise = new Date(sessionSunrise).toLocaleTimeString('en-US', { hour12: false });
         let date = new Date().toLocaleTimeString('en-US', { hour12: false });
 
-        if (dateSunrise > date && date <= dateSunset) {
+        if (dateSunrise < date && date <= dateSunset) {
             if (checkBrightness() <= 125) { //check if in light mode?
                 lightMode();
                 if (!(sessionStorage.getItem('notification') == 'base')) {
