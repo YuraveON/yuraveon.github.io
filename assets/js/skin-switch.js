@@ -83,17 +83,18 @@ function timer(){
 }
 
 function loadSession() {
-    sessionLoaded = true;
     if (sessionStorage.getItem('mode') == 'light') {
+        sessionLoaded = true;
         lightMode();
     } else if (sessionStorage.getItem('mode') == 'dark') {
+        sessionLoaded = true;
         darkMode();
     }
 }
 
 
 function checkTime() {
-    $(function () { 
+    $(function () {
         let sessionSunset = sessionStorage.getItem('sunset');
         let sessionSunrise = sessionStorage.getItem('sunrise');
 
@@ -110,7 +111,7 @@ function checkTime() {
                             style: 'theme',
                             className: 'light',
                             elementPosition: "bottom right",
-                            autoHideDelay: 3000
+                            autoHideDelay: 2000
                         });
                         notifLight = true;
                     }
@@ -126,7 +127,7 @@ function checkTime() {
                             style: 'theme',
                             className: 'dark',
                             elementPosition: "bottom right",
-                            autoHideDelay: 3000
+                            autoHideDelay: 2000
                         });
                         notifDark = true;
                     }
