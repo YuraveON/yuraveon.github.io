@@ -1,0 +1,119 @@
+---
+layout: page
+title: Projects
+cover-img: /assets/img/cosmos-satellite.jpg
+---
+
+<div class="row text-center">
+    <div style="margin:0 auto;" class="text-center">
+        <h2>Featured Projects</h2>
+        <div class="project-card">
+            <hr class="small">
+            {%- assign gh-user = "YuraveON"-%}
+            {%- assign gh-project = "XSSRFLFI" -%}
+        
+            <a target="_blank" href="https://github.com/{{- gh-user -}}/{{- gh-project -}}" title="Go to Github Project Page">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fas fa-file-contract fa-stack-1x fa-inverse"></i>
+                </span>
+        
+        
+                <h3>{{- gh-project -}}</h3>
+            </a>
+            <p>Just an automation of XSS, SSRF, and LFI tester for Web Application.</p>
+        
+            <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/yuraveon/xssrflfi?style=for-the-badge">
+            <img alt="GitHub forks" src="https://img.shields.io/github/forks/yuraveon/xssrflfi?style=for-the-badge">
+            <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/yuraveon/xssrflfi?style=for-the-badge">
+            <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/yuraveon/xssrflfi?style=for-the-badge">
+            <hr class="small">
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="posts-list">
+
+    {%- for post in site.tags.project -%}
+    <article class="post-preview">
+
+        {%- capture thumbnail -%}
+        {% if post.thumbnail-img %}
+        {{ post.thumbnail-img }}
+        {% elsif post.cover-img %}
+        {% if post.cover-img.first %}
+        {{ post.cover-img[0].first.first }}
+        {% else %}
+        {{ post.cover-img }}
+        {% endif %}
+        {% else %}
+        {% endif %}
+        {% endcapture %}
+        {% assign thumbnail=thumbnail | strip %}
+
+        {% if site.feed_show_excerpt == false %}
+        {% if thumbnail != "" %}
+        <div class="post-image post-image-normal">
+            <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
+                <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
+            </a>
+        </div>
+        {% endif %}
+        {% endif %}
+
+        <a href="{{ post.url | absolute_url }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+        </a>
+
+        <p class="post-meta">
+            {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+            Posted on {{ post.date | date: date_format }}
+        </p>
+
+        {% if thumbnail != "" %}
+        <div class="post-image post-image-small">
+            <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
+                <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
+            </a>
+        </div>
+        {% endif %}
+
+        {% unless site.feed_show_excerpt == false %}
+        {% if thumbnail != "" %}
+        <div class="post-image post-image-short">
+            <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
+                <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="post-entry">
+            {% assign excerpt_length = site.excerpt_length | default: 50 %}
+            {{ post.excerpt | strip_html | xml_escape | truncatewords: excerpt_length }}
+            {% assign excerpt_word_count = post.excerpt | number_of_words %}
+            {% if post.content != post.excerpt or excerpt_word_count > excerpt_length %}
+            <a href="{{ post.url | absolute_url }}" class="post-read-more">[Read&nbsp;More]</a>
+            {% endif %}
+        </div>
+        {% endunless %}
+
+        {% if site.feed_show_tags != false and post.tags.size > 0 %}
+        <div class="blog-tags">
+            <span>Tags:</span>
+            {% for tag in post.tags %}
+            <a href="{{ '/tags' | absolute_url }}#{{- tag -}}">{{- tag -}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </article>
+    {% endfor %}
+</div>
