@@ -105,7 +105,7 @@ Pada pertama kali kamu melakukan serangan pada targetmu, saya harap kamu dapat m
 
 - Memulai dengan mendaftarkan sebuah akun jika memungkinkan atau ubah akun kamu dan pastikan kamu melakukan hal berikut:
     - Di manapun yang memungkinkan, masukan serangan vektor Cross Site Scripting (XSS) dan Server Side Template Injection (SSTI). Ini akan dilakukan melalui pengujian manual dan mungkin mengekspos masalah integrasi yang sulit ditemukan.
-    - Contoh serangan vektor: `<img src=x onerror=alert()>${{7*7}}`
+    - Contoh serangan vektor: ```<img src=x onerror=alert()>${{7*7}}```
     - Masukan serangan vektor tersebut ke setiap field yang mungkin
     - Buat serangan vektor mu sendiri!
 - Setelah mendaftar, jelajahi website seperti pengguna normal.
